@@ -1,0 +1,40 @@
+<head>
+  <title>oncreated-reload</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+
+  {{> layout}}
+</body>
+
+<template name="layout">
+  {{> Template.dynamic template=template data=data}}
+</template>
+<template name="home">
+  {{> nav}}
+</template>
+
+<template name="nav">
+  <a href="/pup/1">Arthy</a> |
+  <a href="/pup/2">Paul</a> |
+  <a href="/pup/3">JeJe</a>
+</template>
+
+<template name="pup">
+  <div class="float:left">
+    {{> nav}}
+  </div>
+  <div class="margin-left: 150px">
+    <strong>Working:</strong> {{> workingChild user=user}}<br/>
+    <strong>Not Working:</strong> {{> notWorkingChild user=user}}
+  </div>
+</template>
+
+<template name="workingChild">
+  {{user.name}}
+</template>
+
+<template name="notWorkingChild">
+  {{getUser.name}}
+</template>
